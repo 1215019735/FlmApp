@@ -1,0 +1,26 @@
+<!-- 弹窗 -->
+<div *ngIf="alert.alertShow" id="floor">
+  <div class="floor-window">
+    <div class="floor-window-title">{{alert.alertTit}}</div>
+    <div class="floor-window-content" [ngStyle]="{'text-align': alert.alertAlign}">{{alert.alertCont}}</div>
+    <div class="floor-window-enter" (click)="alertEnter()">确定</div>
+  </div>
+</div>
+<!-- 对话框 -->
+<div *ngIf="confirm.confirmShow" id="floor">
+  <div class="floor-window">
+    <div class="floor-window-title">{{confirm.confirmTit}}</div>
+    <div [ngStyle]="{'text-align': confirm.confirmAlign}" class="floor-window-content">{{confirm.confirmCont}}</div>
+    <div class="floor-window-select">
+      <div class="floor-window-enters" (click)="confirmEnter()">确认</div>
+      <div class="floor-window-cancel" (click)="confirmCancel()">取消</div>
+    </div>
+  </div>
+</div>
+<!-- 加载中动画 -->
+<div *ngIf="loadShow" id="floor-load">
+  <div class="loading">
+    <div class="load-pic"></div>
+    <span class="load-cont">{{loadItem}}</span>
+  </div>
+</div>

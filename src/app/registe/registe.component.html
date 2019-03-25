@@ -1,0 +1,28 @@
+<div id="header">
+  <li class="login-title"><i class="iconfont icon-icleft" onclick="history.back()"></i> 登录</li>
+</div>
+<div id="content">
+  <li class="login-mes">新用户注册</li>
+  <div class="login-tel">
+    <li class="login-tel-mes">短信验证</li>
+    <div class="login-tel-form" action="">
+      <input class="login-tel-form-input" type="text" [(ngModel)]="loginReq.PhoneCode" placeholder="输入验证码"><span [ngClass]="{'ban': DJS.color}"
+        class="getCode" (click)="showVerify()">{{DJS.verify}}</span>
+    </div>
+    <li class="mes-send" [ngClass]="{'show':tishi}">短信已发送至{{smsReq.MobilePhone}}，请注意查收</li>
+  </div>
+  <a class="login-btn" (click)="Registe()" >注册并登录</a>
+</div>
+
+<div id="cover" [ngClass]="{'show': Show}">
+  <div class="tuxing-layer">
+    <li class="layer-title">图形验证</li>
+    <div class="layer-info">
+      <div class="layer-form"><input [(ngModel)]="smsReq.Captcha" class="layer-form-input" type="text" /></div>
+      <div class="layer-img"><img src="{{Base64Code}}" class="layer-form-img" (click)="getVerify()" /></div>
+    </div>
+    <div class="layer-bnt" (click)="checkVerify()">提交</div>
+  </div>
+</div>
+
+<mylayer #myLayer></mylayer>

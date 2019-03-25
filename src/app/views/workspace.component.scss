@@ -1,0 +1,24 @@
+.tab{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    ul{
+            display: flex;
+            margin: 0;
+            padding: 0;
+            li{
+                padding: 10px;
+                flex: 1;
+                background-color: #eee;
+                border-right: 1px solid #ddd;
+                list-style: none;
+                text-align: center;
+                cursor: pointer;
+                &:active{
+                    background-color: #ddd;       
+                }
+            
+        }
+       
+    }
+}

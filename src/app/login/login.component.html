@@ -1,0 +1,14 @@
+<div id="header">
+  <li class="login-title">登录</li>
+</div>
+<div id="content">
+  <li class="login-mes">请输入手机号</li>
+  <div class="login-tel">
+    <li class="login-tel-mes">手机号</li>
+    <div class="login-tel-form">
+      <input [(ngModel)]="MobilePhone" (ngModelChange)="TelChange($event)" class="login-tel-form-input" type="text"
+        placeholder="输入手机号" /><i class="tel-clear iconfont icon-qingkongshuruwenzi" *ngIf="close"   (click)="clear()"></i>
+    </div>
+  </div>
+  <a class="login-btn" (click)="VerifyTel()">下一步</a>
+</div>

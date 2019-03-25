@@ -1,0 +1,356 @@
+<div id="filterHeader">
+  <i class="iconfont icon-icleft"></i>
+  <div class="quanbu">
+    全部楼盘
+  </div>
+  <div>
+    <div class="filter-header-form">
+      <img class="header-form-img" src="assets/images/search.png" />
+      <input class="header-form-input" type="text" placeholder="请输入楼盘名称">
+    </div>
+  </div>
+  <div id="filterNav">
+    <div *ngFor="let item of filt" data-id="{{item.id}}" [class.filterNav-active]="item === selectedFilter"
+      class="{{item.class}}" (click)="onSelect(item)">{{item.cont}}<i class="{{item.icon}}"></i></div>
+  </div>
+</div>
+
+<div id="container">
+  <div class="areaCover" *ngIf="filter.Show" >
+    <div id="filter">
+      <!-- 区域 -->
+      <div class="filter-content" *ngIf="filter.areaShow">
+        <div id="filterBox">
+          <div class="filterBox-nav1">
+            <li class="filterBox-nav1-li filterBox-nav1-li-active">区域</li>
+            <li class="filterBox-nav1-li">地铁</li>
+            <li class="filterBox-nav1-li ">附近</li>
+          </div>
+          <div class="filterBox-nav1">
+            <li class="filterBox-nav1-li">不限</li>
+            <li class="filterBox-nav1-li filterBox-nav1-li-active">红谷滩区</li>
+            <li class="filterBox-nav1-li">高新开发区</li>
+            <li class="filterBox-nav1-li">红谷滩区</li>
+            <li class="filterBox-nav1-li">高新开发区</li>
+            <li class="filterBox-nav1-li">红谷滩区</li>
+            <li class="filterBox-nav1-li">高新开发区</li>
+          </div>
+          <div class="filterBox-nav2">
+            <li class="filterBox-nav1-li"> <span>不限</span></li>
+            <li class="filterBox-nav1-li filterBox-nav1-li-active">
+              <span>红谷滩中心区</span>
+              <input class="filterBox-nav1-li-input" type="checkbox" name="" id="unid1"> <label for="unid1"></label>
+            </li>
+            <li class="filterBox-nav1-li">
+              <span>红谷滩中心区</span>
+              <input class="filterBox-nav1-li-input" type="checkbox" name="" id="unid2"> <label for="unid2"></label>
+            </li>
+            <li class="filterBox-nav1-li filterBox-nav1-li-active">
+              <span>红谷滩中心区</span>
+              <input class="filterBox-nav1-li-input" type="checkbox" name="" id="unid3"> <label for="unid3"></label>
+            </li>
+          </div>
+        </div>
+
+        <div class="confirm">
+          <div class="confirm-reset">重置</div>
+          <div class="confirm-bnt1">
+            <div class="confirm-ture">确定</div>
+          </div>
+
+        </div>
+      </div>
+      <!-- 均价 -->
+      <div class="filter-content" *ngIf="filter.priceShow" >
+        <div id="filterBox">
+          <div class="filterBox-nav1">
+            <li class="filterBox-nav1-li filterBox-nav1-li-active">均价</li>
+            <li class="filterBox-nav1-li">总价</li>
+
+          </div>
+          <div class="filterBox-nav3">
+            <li class="filterBox-nav1-li">不限</li>
+            <li class="filterBox-nav1-li filterBox-nav1-li-active">7千一下</li>
+            <li class="filterBox-nav1-li">7-9千</li>
+            <li class="filterBox-nav1-li">9-1万</li>
+            <li class="filterBox-nav1-li">1万-1.5万</li>
+            <li class="filterBox-nav1-li">1.5万以上</li>
+            <li class="filterBox-nav1-li">1万-1.5万</li>
+            <li class="filterBox-nav1-li">1.5万以上</li>
+          </div>
+
+        </div>
+
+        <div class="confirm">
+          <div class="conform-price-screening">
+            自定义：<input class="confirm-input" type="text" placeholder="最低"> - <input class="confirm-input" type="text"
+              placeholder="最高"> 元
+          </div>
+
+          <div class="confirm-bnt2">
+            <div class="confirm-ture">确定</div>
+          </div>
+
+        </div>
+      </div>
+      <!-- 户型 -->
+      <div class="filter-content" *ngIf="filter.typeShow" >
+        <div id="filterBox">
+          <div class="filterBox-nav4">
+            <li class="filterBox-nav1-li"> <span>不限</span></li>
+            <li class="filterBox-nav1-li filterBox-nav1-li-active">
+              <span>一居室</span>
+              <input class="filterBox-nav1-li-input" type="checkbox" name="" id="unid1"> <label for="unid1"></label>
+            </li>
+            <li class="filterBox-nav1-li">
+              <span>二居室</span>
+              <input class="filterBox-nav1-li-input" type="checkbox" name="" id="unid2"> <label for="unid2"></label>
+            </li>
+            <li class="filterBox-nav1-li filterBox-nav1-li-active">
+              <span>三居室</span> <input class="filterBox-nav1-li-input" type="checkbox" name="" id="unid3">
+              <label for="unid3"></label>
+            </li>
+            <li class="filterBox-nav1-li">
+              <span>四居室</span>
+              <input class="filterBox-nav1-li-input" type="checkbox" name="" id="unid4"> <label for="unid4"></label>
+            </li>
+            <li class="filterBox-nav1-li filterBox-nav1-li-active">
+              <span>五居室</span> <input class="filterBox-nav1-li-input" type="checkbox" name="" id="unid5">
+              <label for="unid5"></label>
+            </li>
+          </div>
+        </div>
+
+        <div class="confirm">
+
+          <div class="conform-bnt3">
+            <div class="confirm-ture">确定</div>
+          </div>
+
+        </div>
+      </div>
+      <!-- 更多 -->
+      <div class="filter-content" *ngIf="filter.moreShow" >
+        <div id="filterBox1">
+          <div class="filterBox-more-nav">
+            <li class="filterBox-more-nav-title">类型</li>
+            <div class="filterBox-more-tag">
+              <li class="filterBox-more-li filterBox-more-li-active">区域</li>
+              <li class="filterBox-more-li">地铁</li>
+              <li class="filterBox-more-li ">附近</li>
+              <li class="filterBox-more-li ">附近</li>
+              <li class="filterBox-more-li">地铁</li>
+              <li class="filterBox-more-li ">附近</li>
+              <li class="filterBox-more-li ">附近</li>
+              <li class="filterBox-more-li-empty "></li>
+              <li class="filterBox-more-li-empty "></li>
+              <li class="filterBox-more-li-empty "></li>
+            </div>
+          </div>
+          <div class="filterBox-more-nav">
+            <li class="filterBox-more-nav-title">面积</li>
+            <div class="filterBox-more-tag">
+              <li class="filterBox-more-li filterBox-more-li-active">60以下</li>
+              <li class="filterBox-more-li">61-80</li>
+              <li class="filterBox-more-li ">81-100</li>
+              <li class="filterBox-more-li ">101-120</li>
+              <li class="filterBox-more-li">121-150</li>
+              <li class="filterBox-more-li ">151-180</li>
+              <li class="filterBox-more-li ">181以上</li>
+              <li class="filterBox-more-li-empty "></li>
+              <li class="filterBox-more-li-empty "></li>
+              <li class="filterBox-more-li-empty "></li>
+            </div>
+          </div>
+          <div class="filterBox-more-nav">
+            <li class="filterBox-more-nav-title">销售状态</li>
+            <div class="filterBox-more-tag">
+              <li class="filterBox-more-li">在售</li>
+              <li class="filterBox-more-li filterBox-more-li-active">代售</li>
+              <li class="filterBox-more-li">售罄</li>
+              <li class="filterBox-more-li-empty "></li>
+              <li class="filterBox-more-li-empty "></li>
+              <li class="filterBox-more-li-empty "></li>
+            </div>
+          </div>
+          <div class="filterBox-more-nav">
+            <li class="filterBox-more-nav-title">装修</li>
+            <div class="filterBox-more-tag">
+              <li class="filterBox-more-li filterBox-more-li-active">平装</li>
+              <li class="filterBox-more-li">地铁</li>
+              <li class="filterBox-more-li ">附近</li>
+              <li class="filterBox-more-li-empty "></li>
+              <li class="filterBox-more-li-empty "></li>
+              <li class="filterBox-more-li-empty "></li>
+            </div>
+          </div>
+        </div>
+        <div class="confirm">
+          <div class="confirm-reset">重置</div>
+          <div class="confirm-bnt1">
+            <div class="confirm-ture">确定</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="index-list">
+    <div class="index-list-cont">
+      <div class="list-dec">
+        <img class="list-dec-img" src="assets/images/list.png" alt="">
+        <div class="list-dec-div">
+          <li class="list-dec-name">九龙十一度</li>
+          <li class="list-dec-price">九龙湖- 15000元/㎡</li>
+          <li class="list-dec-commission"><img class="list-dec-commission-img" src="assets/images/commision.png"
+              alt="">10000元/套</li>
+        </div>
+      </div>
+      <div class="list-label">
+        <li class="list-label-tag">
+          <span class="list-label-tag1">学区房</span>
+          <span class="list-label-tag2">精装修</span>
+          <span class="list-label-tag3">交通便利</span>
+        </li>
+        <li class="list-label-company">
+          南昌房乐美
+        </li>
+      </div>
+    </div>
+  </a>
+  <a class="index-list">
+    <div class="index-list-cont">
+      <div class="list-dec">
+        <img class="list-dec-img" src="assets/images/list.png" alt="">
+        <div class="list-dec-div">
+          <li class="list-dec-name">九龙十一度</li>
+          <li class="list-dec-price">九龙湖- 15000元/㎡</li>
+          <li class="list-dec-commission"><img class="list-dec-commission-img" src="assets/images/commision.png"
+              alt="">10000元/套</li>
+        </div>
+      </div>
+      <div class="list-label">
+        <li class="list-label-tag">
+          <span class="list-label-tag1">学区房</span>
+          <span class="list-label-tag2">精装修</span>
+          <span class="list-label-tag3">交通便利</span>
+        </li>
+        <li class="list-label-company">
+          南昌房乐美
+        </li>
+      </div>
+    </div>
+  </a>
+  <a class="index-list">
+    <div class="index-list-cont">
+      <div class="list-dec">
+        <img class="list-dec-img" src="assets/images/list.png" alt="">
+        <div class="list-dec-div">
+          <li class="list-dec-name">九龙十一度</li>
+          <li class="list-dec-price">九龙湖- 15000元/㎡</li>
+          <li class="list-dec-commission"><img class="list-dec-commission-img" src="assets/images/commision.png"
+              alt="">10000元/套</li>
+        </div>
+      </div>
+      <div class="list-label">
+        <li class="list-label-tag">
+          <span class="list-label-tag1">学区房</span>
+          <span class="list-label-tag2">精装修</span>
+          <span class="list-label-tag3">交通便利</span>
+        </li>
+        <li class="list-label-company">
+          南昌房乐美
+        </li>
+      </div>
+    </div>
+  </a>
+  <a class="index-list">
+    <div class="index-list-cont">
+      <div class="list-dec">
+        <img class="list-dec-img" src="assets/images/list.png" alt="">
+        <div class="list-dec-div">
+          <li class="list-dec-name">九龙十一度</li>
+          <li class="list-dec-price">九龙湖- 15000元/㎡</li>
+          <li class="list-dec-commission"><img class="list-dec-commission-img" src="assets/images/commision.png"
+              alt="">10000元/套</li>
+        </div>
+      </div>
+      <div class="list-label">
+        <li class="list-label-tag">
+          <span class="list-label-tag1">学区房</span>
+          <span class="list-label-tag2">精装修</span>
+          <span class="list-label-tag3">交通便利</span>
+        </li>
+        <li class="list-label-company">
+          南昌房乐美
+        </li>
+      </div>
+    </div>
+  </a>
+  <a class="index-list">
+    <div class="index-list-cont">
+      <div class="list-dec">
+        <img class="list-dec-img" src="assets/images/list.png" alt="">
+        <div class="list-dec-div">
+          <li class="list-dec-name">九龙十一度</li>
+          <li class="list-dec-price">九龙湖- 15000元/㎡</li>
+          <li class="list-dec-commission"><img class="list-dec-commission-img" src="assets/images/commision.png"
+              alt="">10000元/套</li>
+        </div>
+      </div>
+      <div class="list-label">
+        <li class="list-label-tag">
+          <span class="list-label-tag1">学区房</span>
+          <span class="list-label-tag2">精装修</span>
+          <span class="list-label-tag3">交通便利</span>
+        </li>
+        <li class="list-label-company">
+          南昌房乐美
+        </li>
+      </div>
+    </div>
+  </a>
+  <a class="index-list">
+    <div class="index-list-cont">
+      <div class="list-dec">
+        <img class="list-dec-img" src="assets/images/list.png" alt="">
+        <div class="list-dec-div">
+          <li class="list-dec-name">九龙十一度</li>
+          <li class="list-dec-price">九龙湖- 15000元/㎡</li>
+          <li class="list-dec-commission"><img class="list-dec-commission-img" src="assets/images/commision.png"
+              alt="">10000元/套</li>
+        </div>
+      </div>
+      <div class="list-label">
+        <li class="list-label-tag">
+          <span class="list-label-tag1">学区房</span>
+          <span class="list-label-tag2">精装修</span>
+          <span class="list-label-tag3">交通便利</span>
+        </li>
+        <li class="list-label-company">
+          南昌房乐美
+        </li>
+      </div>
+    </div>
+  </a>
+
+</div>
+<div id="bottom">
+  <a class="bottom-item bottom-item-active ">
+    <i class="iconfont icon-home"></i>
+    <li>首页</li>
+  </a>
+  <a class="bottom-item">
+    <i class="iconfont icon-icontwo"></i>
+    <li>我的推荐</li>
+  </a>
+
+  <a class="bottom-item">
+    <i class="iconfont icon-huodong"></i>
+    <li>活动</li>
+  </a>
+  <a class="bottom-item">
+    <i class="iconfont icon-wode"></i>
+    <li>我的</li>
+  </a>
+</div>
